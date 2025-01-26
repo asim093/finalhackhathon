@@ -4,11 +4,27 @@ import Unauthorized from "../Pages/Unauthorized/Unauthorized.jsx";
 import ProtectedRoute from "../Components/ProtectedRoutes/protectedroutes.jsx";
 import Signup from "../Pages/Auth/Signup/Signup.jsx";
 import Login from "../Pages/Auth/Login/Login.jsx";
+import Homepage from "../Pages/Homepage/Homepage.jsx";
+import Category from "../Pages/Category/Category.jsx";
+import Subcategory from "../Pages/Subcategory/Subcategory.jsx";
+import DepositForm from "../Pages/depositform/depositform.jsx";
 
 export const publicRoutes = createBrowserRouter([
   {
     path: "/",
-    element: <div>Home Page</div>,
+    element: <Homepage/>,
+  },
+  {
+    path: "/category",
+    element: <Category/>,
+  },
+  {
+    path: "/subcategory/:id",
+    element: <Subcategory/>,
+  },
+  {
+    path: "/form",
+    element: <DepositForm/>,
   },
   {
     path: "/auth/sign-up",

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    name: '',
     email: '',
     password: ''
   });
@@ -28,7 +28,7 @@ const Signup = () => {
     setError(null);
 
     try {
-      const response = await fetch('https://your-api-endpoint.com/signup', {
+      const response = await fetch('/api/user/Signup', {  // Fixed URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,6 +41,7 @@ const Signup = () => {
       }
 
       alert('Signup successful!');
+      navigate('/auth/login');  // Redirect to login page after successful signup
     } catch (err) {
       setError(err.message || 'Something went wrong');
     } finally {
@@ -58,12 +59,12 @@ const Signup = () => {
         <h1 className="text-3xl font-semibold text-center mb-6">Sign Up</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">name</label>
             <input
               type="text"
-              id="username"
-              name="username"
-              value={formData.username}
+              id="name"
+              name="name"
+              value={formData.name}
               onChange={handleChange}
               required
               className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
